@@ -22,3 +22,20 @@ http://localhost:4173
 4. Select the branch and root folder.
 
 The site uses plain HTML, CSS, and JavaScript, so no build step is required.
+
+## Google Analytics 4
+
+Measurement ID: `G-1XEP3DDMVF`
+
+Custom events:
+
+- `booking_form_click`: fires when a visitor clicks one of the Google Form booking links.
+- `engagement_milestone`: fires after 30, 60, 120, and 300 seconds of visible page time.
+
+Recommended GA4 configuration:
+
+1. Mark `booking_form_click` as a key event.
+2. Create event-scoped custom dimensions for `link_location` and `milestone_label`.
+3. Create an event-scoped custom metric for `engagement_seconds`, using seconds as the unit.
+
+`link_location` values identify the CTA placement: `navigation`, `hero`, or `final_cta`.
