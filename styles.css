@@ -173,7 +173,7 @@ img {
   z-index: 1;
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 150px 0 52px;
+  padding: 124px 0 40px;
 }
 
 .eyebrow,
@@ -189,7 +189,7 @@ img {
 .hero h1 {
   max-width: 760px;
   margin: 0;
-  font-size: clamp(2.5rem, 8vw, 5.9rem);
+  font-size: clamp(2.5rem, 8vw, 3.72rem);
   line-height: 1.04;
   letter-spacing: 0;
 }
@@ -211,7 +211,36 @@ img {
 }
 
 .hero-actions {
-  margin-top: 34px;
+  margin-top: 28px;
+}
+
+.hero-fit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 720px;
+  margin-top: 24px;
+}
+
+.hero-fit span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.92rem;
+  font-weight: 800;
+  backdrop-filter: blur(10px);
+}
+
+.hero-microcopy {
+  max-width: 660px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.95rem;
 }
 
 .button {
@@ -248,7 +277,7 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: min(760px, 100%);
-  margin: 50px 0 0;
+  margin: 36px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.28);
 }
 
@@ -330,21 +359,77 @@ img {
 }
 
 .scenario-grid,
-.pricing-grid {
+.situation-grid,
+.pricing-grid,
+.duration-guide,
+.guide-grid,
+.simple-process,
+.method-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
+.scenario-grid,
+.situation-grid,
+.pricing-grid,
+.duration-guide,
+.simple-process,
+.method-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.situation-grid,
+.method-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .scenario,
+.situation-grid article,
+.simple-process article,
+.method-grid article,
 .price-card,
 .testimonial-card,
 .principles article,
-.faq-list details {
+.faq-list details,
+.guide-card,
+.duration-guide article {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 6px 22px rgba(18, 33, 31, 0.05);
+}
+
+.situation-grid article {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.situation-grid span,
+.method-grid span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.situation-grid h3,
+.simple-process h3,
+.method-grid h3 {
+  margin: 0 0 10px;
+  font-size: 1.18rem;
+  line-height: 1.36;
+}
+
+.situation-grid p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .scenario {
@@ -366,7 +451,9 @@ img {
 .scenario h3,
 .principles h3,
 .process h3,
-.price-card h3 {
+.price-card h3,
+.guide-card h3,
+.duration-guide h3 {
   margin: 0 0 10px;
   font-size: 1.23rem;
   line-height: 1.35;
@@ -377,13 +464,35 @@ img {
 .process p,
 .pathway-node p,
 .pathway-start p,
+.simple-process p,
+.method-grid p,
 .quadrant p,
 .price-card p,
+.guide-card p,
+.duration-guide p,
 .faq-list p,
 .credentials span,
 .note {
   margin: 0;
   color: var(--muted);
+}
+
+.simple-process {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.simple-process article,
+.method-grid article {
+  padding: 24px;
+}
+
+.simple-process article {
+  background: var(--white);
+}
+
+.simple-process .referral-step {
+  border-color: rgba(199, 155, 70, 0.62);
+  background: #fffaf0;
 }
 
 .pathway-map {
@@ -436,36 +545,54 @@ img {
 .pathway-branches {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  padding-top: 28px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 44px;
 }
 
 .pathway-branches::before {
   content: "";
   position: absolute;
   top: 0;
-  right: calc((100% - 42px) / 8);
-  left: calc((100% - 42px) / 8);
-  height: 2px;
+  left: 50%;
+  width: 2px;
+  height: 32px;
   background: var(--green-2);
+  transform: translateX(-50%);
 }
 
 .pathway-branches .pathway-node {
   padding: 24px;
 }
 
-.pathway-branches .pathway-node::before {
-  content: "";
-  position: absolute;
-  top: -29px;
-  left: 50%;
-  width: 2px;
-  height: 28px;
-  background: var(--green-2);
+.branch-label {
+  grid-column: 1 / -1;
+  width: fit-content;
+  margin: 0 auto -4px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 900;
 }
 
-.pathway-node.referral {
+.branch-label.referral-label {
+  margin-top: 10px;
+  background: var(--gold);
+  color: #171b15;
+}
+
+.pathway-branches .service-track {
+  grid-column: span 2;
+}
+
+.pathway-branches .referral-track {
+  grid-column: span 3;
+}
+
+.pathway-node.referral,
+.pathway-node.referral-track {
   border-color: rgba(199, 155, 70, 0.62);
   background: #fffaf0;
 }
@@ -473,13 +600,21 @@ img {
 .path-number {
   display: grid;
   place-items: center;
-  width: 42px;
+  width: fit-content;
+  min-width: 42px;
   height: 42px;
-  border-radius: 50%;
+  padding: 0 12px;
+  border-radius: 999px;
   background: var(--green);
   color: var(--white);
   font-size: 0.78rem;
   font-weight: 900;
+}
+
+.referral-track .path-number,
+.referral-step .path-number {
+  background: var(--gold);
+  color: #171b15;
 }
 
 .pathway-node h3,
@@ -488,6 +623,62 @@ img {
   margin: 0 0 10px;
   font-size: 1.16rem;
   line-height: 1.35;
+}
+
+.path-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.path-pill-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid rgba(73, 123, 131, 0.36);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--green);
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.path-duration,
+.special-note {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f2f6f6;
+}
+
+.path-duration strong,
+.special-note strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.path-duration span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.path-duration span + span {
+  margin-top: 4px;
+}
+
+.special-note {
+  border-left: 4px solid var(--coral);
+  background: #fff8f4;
+}
+
+.special-note p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .scope-layout {
@@ -595,10 +786,119 @@ img {
   padding: 24px;
 }
 
+.guide-grid {
+  margin-bottom: 6px;
+}
+
+.guide-card {
+  padding: 26px;
+  border-top: 5px solid var(--green-2);
+}
+
+.guide-card span,
+.duration-guide span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--aqua);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.guide-card.inner-weather {
+  border-top-color: var(--gold);
+}
+
+.guide-card.inner-weather span {
+  color: var(--gold);
+}
+
+.referral-principle {
+  border-color: rgba(199, 155, 70, 0.5);
+  background: #fffaf0;
+}
+
+.referral-options {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.referral-options span {
+  display: block;
+  padding-left: 12px;
+  border-left: 3px solid rgba(199, 155, 70, 0.66);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.duration-guide {
+  margin-bottom: 24px;
+}
+
+.duration-guide article {
+  padding: 24px;
+  background: #f8fbf7;
+}
+
+.duration-guide article:nth-child(2) {
+  background: #fffaf0;
+}
+
+.duration-guide article:nth-child(3) {
+  background: #f2f6f6;
+}
+
+.duration-guide span {
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
 .note {
   margin-top: 20px;
   padding-left: 16px;
   border-left: 3px solid var(--gold);
+}
+
+.quote-band {
+  padding: 82px 0;
+  background: var(--green);
+  color: var(--white);
+}
+
+.quote-band blockquote {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 0 0 42px;
+  border-left: 5px solid var(--gold);
+}
+
+.quote-band blockquote::before {
+  content: "“";
+  position: absolute;
+  top: -42px;
+  left: 18px;
+  color: rgba(255, 255, 255, 0.16);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.quote-band p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 2.45rem);
+  font-weight: 900;
+  line-height: 1.48;
+  letter-spacing: 0;
+}
+
+.quote-band p + p {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.08rem, 2vw, 1.45rem);
+  font-weight: 750;
 }
 
 .about-layout {
@@ -982,8 +1282,13 @@ img {
 
   .hero-stats,
   .scenario-grid,
+  .situation-grid,
   .pricing-grid,
   .process,
+  .duration-guide,
+  .simple-process,
+  .method-grid,
+  .guide-grid,
   .intro-grid,
   .two-column,
   .about-layout,
@@ -999,14 +1304,18 @@ img {
 
   .pathway-start::after,
   .primary-node::after,
-  .pathway-branches::before,
-  .pathway-branches .pathway-node::before {
+  .pathway-branches::before {
     display: none;
   }
 
   .pathway-branches {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding-top: 0;
+  }
+
+  .pathway-branches .service-track,
+  .pathway-branches .referral-track {
+    grid-column: auto;
   }
 
   .testimonial-track {
@@ -1062,21 +1371,41 @@ img {
     min-height: 820px;
   }
 
+  .hero-content {
+    padding-top: 108px;
+    padding-bottom: 32px;
+  }
+
   .hero h1 {
-    font-size: clamp(2.18rem, 11vw, 3.55rem);
+    font-size: clamp(2.05rem, 10vw, 3.2rem);
   }
 
   .hero-lead {
-    font-size: 1.02rem;
+    margin-top: 18px;
+    font-size: 0.98rem;
   }
 
   .button {
     width: 100%;
   }
 
+  .hero-fit {
+    gap: 8px;
+  }
+
+  .hero-fit span {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 0.82rem;
+  }
+
+  .hero-microcopy {
+    font-size: 0.88rem;
+  }
+
   .hero-stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 28px;
+    margin-top: 22px;
   }
 
   .hero-stats div {
@@ -1096,16 +1425,35 @@ img {
     padding: 66px 0;
   }
 
+  .quote-band {
+    padding: 62px 0;
+  }
+
+  .quote-band blockquote {
+    padding-left: 24px;
+  }
+
+  .quote-band blockquote::before {
+    top: -30px;
+    left: 8px;
+    font-size: 5.6rem;
+  }
+
   .intro-band {
     padding: 48px 0;
   }
 
   .scenario,
+  .situation-grid article,
   .price-card,
   .testimonial-card,
   .pathway-start,
   .pathway-node,
+  .simple-process article,
+  .method-grid article,
   .quadrant,
+  .guide-card,
+  .duration-guide article,
   .principles article,
   .about-panel {
     padding: 22px;
